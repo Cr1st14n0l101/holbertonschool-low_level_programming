@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/* function main runs "Programming is like building a multilingual puzzle */
+/* function main runs Programming is like building a multilingual puzzle */
 
 int main(void)
 {
