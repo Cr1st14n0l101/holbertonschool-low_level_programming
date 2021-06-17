@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+/* funtion main runs "Programming is like building a multilingual puzzle */
+
 int main(void)
 {
 char str1[52];
