@@ -6,9 +6,9 @@
  */
 int main(void)
 {
-	long num1 = 1;
-	long num2 = 1;
-	long sum = 0;
+	long num1 = 0;
+	long num2 = 0;
+	long sum = 1;
 
 	while (num1 <= 7778742049)
 	{
