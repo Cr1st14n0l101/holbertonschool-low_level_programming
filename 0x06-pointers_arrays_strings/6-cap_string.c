@@ -13,7 +13,7 @@ char *cap_string(char *s)
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < 13; j++)
-		{
+		{			
 			if (s[i] == sep[j])
 			{
 				if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
@@ -21,10 +21,7 @@ char *cap_string(char *s)
 					s[i + 1] = s[i + 1] - 32;
 				}
 			}
-			else if (s[i] == '\t')
-			{
-				s[i] = ' ';
-			}
+			
 		}
 	}
 	return (s);
