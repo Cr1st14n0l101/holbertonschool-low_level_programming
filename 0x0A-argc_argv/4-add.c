@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
 /**
  * main - program that adds positive number
@@ -8,8 +9,7 @@
  */
 int main(int argc, char **argv)
 {
-	int i, sum = 0;
-	char tmp;
+	int i, j, sum = 0;
 
 	if (argc < 1)
 	{
@@ -17,17 +17,16 @@ int main(int argc, char **argv)
 	}
 	for (i = 1; i < argc; i++)
 	{
-		tmp = *argv[i];
 
-		if (tmp >= '0' && tmp <= '9')
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			sum += atoi(argv[i]);
+			if (isdigit(argv[i][j]) == 0)
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+		sum += atoi(argv[i]);	
 	}
 	printf("%d\n", sum);
 	return (EXIT_SUCCESS);
