@@ -1,4 +1,4 @@
-#ifndif _HOLBERTON
+#ifndef _HOLBERTON
 #define _HOLBERTON
 
 int _putchar(char c);
