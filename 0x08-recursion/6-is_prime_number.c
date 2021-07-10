@@ -8,14 +8,20 @@ int is_prime_number(int n)
 {
 	if (n <= 1)
 		return (0);
-	return (_prime_number_checker(n , 2));
+	return (_prime_number_checker(n, 2));
 }
 
+/**
+ * _prime_number_checker - check if n is prime number
+ * @n: the number to check
+ * @i: 2
+ * Return: If is prime numbers (1) else (0)
+ */
 int _prime_number_checker(int n, int i)
 {
 	if (i == n)
 		return (1);
 	else if (n % i == 0)
 		return (0);
-	return (_prime_number_checker(n , i + 1));
+	return (_prime_number_checker(n, i + 1));
 }
