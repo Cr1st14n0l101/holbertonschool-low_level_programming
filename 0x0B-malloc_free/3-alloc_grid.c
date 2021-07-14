@@ -19,6 +19,9 @@ int **alloc_grid(int width, int height)
 	for (i = 0; i < width; i++)
 	{
 		str[i] = malloc((height * sizeof(**str)) + 1);
+		for (j = 0; j < height; j++)
+		{
+		}
 	}
 	for (j = 0; j < width; j++)
 	{
@@ -26,8 +29,6 @@ int **alloc_grid(int width, int height)
 		{
 			str[j][k] = 0;
 		}
-		str[j][k] = '\0';
 	}
-	str[j] = '\0';
 	return (str);
 }
