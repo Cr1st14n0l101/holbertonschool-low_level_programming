@@ -30,7 +30,10 @@ int main(int argc, char *argv[])
 			printf("%02hhx\n", c[i]);
 			break;
 		}
-		printf("%02hhx ", c[i]);
+		else
+		{
+			printf("%02hhx ", c[i]);
+		}
 	}
 	return (0);
 }
