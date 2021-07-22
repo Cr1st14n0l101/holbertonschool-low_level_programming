@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * get_op_func - 
- * @s:
- * Return:rar
+ * main - prints the opcodes of its own main function
+ * @argc: argument counter
+ * @argv: argument vector
+ * Return: Always success (0)
  */
 int main(int argc, char *argv[])
 {
@@ -31,5 +32,5 @@ int main(int argc, char *argv[])
 		}
 		printf("%02hhx ", c[i]);
 	}
-	return(0);
+	return (0);
 }
