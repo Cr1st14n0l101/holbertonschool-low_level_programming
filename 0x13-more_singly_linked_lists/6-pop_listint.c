@@ -13,8 +13,8 @@ int pop_listint(listint_t **head)
 	if (head != NULL)
 	{
 		tmp = *head;
-		num = (*head)->n;
-		*head = tmp->next;
+		num = tmp->n;
+		*head = (*head)->next;
 		free(tmp);
 	}
 	else
