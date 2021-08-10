@@ -1,64 +1,66 @@
 #include "main.h"
 
 /**
- * main - main function
- * @ac: counter of arguments
- * @av: argument vector
- * Return: Always 0 Succes
+ * file_copy - Program that copies the content of a file to another file.
+ * @argv:Argument vectors
+ * Return: int.
  */
-int main(int ac, char **av)
+void file_copy(char *argv[])
 {
-	if (ac != 2)
-	{
-		copy_file_to_file(av[1], av[2]);
-		return (0);
-	}
-	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-	exit(97);
-}
+	int fd = 0, fd2 = 0, fd3 = 1, fd4 = 0, fd5 = 0, fd6 = 0;
+	char buffer[1024];
 
-/**
- * copy_file_to_file - Program that copies the content of
- * a file to another file.
- * @filename: source
- * @destiny: destiny of the copy
- * Return: Always 0 Succes
- */
-int copy_file_to_file(const char *filename, char *destiny)
-{
-	int read_df, write_df, checker, var1, var2;
-	char buf[1024];
-
-	read_df = open(filename, O_RDONLY);
-	if (read_df < 0)
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	write_df = open(destiny,  O_CREAT | O_WRONLY | O_TRUNC, 0600);
-	while ((checker = read(read_df, buf, 1024)) > 0)
+	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	if (fd2 == -1)
 	{
-		if (write_df < 0 || write(write_df, buf, checker) != checker)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+	while (fd3 > 0)
+	{
+		fd3 = read(fd, buffer, 1024);
+		if (fd3 == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", destiny);
-			close(read_df);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+		fd4 = write(fd2, buffer, fd3);
+		if (fd4 == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
-	if (checker < 0)
+	fd5 = close(fd);
+	fd6 = close(fd2);
+	if (fd5 == -1 || fd6 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
-		exit(98);
-	}
-	var1 = close(read_df);
-	var2 = close(write_df);
-	if (var1 < 0 || var2 < 0)
-	{
-		if (var1 < 0)
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", read_df);
-		if (var2 < 0)
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", write_df);
+		if (fd5 == -1)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd5);
+		if (fd6 == -1)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd6);
 		exit(100);
 	}
+}
+/**
+ * main - Program that copies the content of a file to another file.
+ * @argc:Argument counter
+ * @argv:Argument vectors
+ * Return: int.
+ */
+int main(int argc, char *argv[])
+{
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	file_copy((char **)argv);
 	return (0);
 }
