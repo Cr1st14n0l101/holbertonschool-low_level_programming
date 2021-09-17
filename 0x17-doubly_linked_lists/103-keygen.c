@@ -98,4 +98,69 @@ int f4(char *str, int len)
 	int i, j, a, b, rdi10, n;
 
 	i = str[0];
-... (67 lines left)
+	j = 0;
+	while (j < len)
+	{
+		a = str[j];
+		if (a > i)
+		{
+			b = str[j];
+			i = b;
+		}
+		++j;
+	}
+	rdi10 = i ^ 14;
+	*(&rdi10 + 4) = 0;
+	srand(rdi10);
+	n = rand();
+	return (n & 63);
+}
+
+/**
+ * f5 - Computes the fifth character in the key for the given username
+ * @str: The username
+ * @len: The length of the given username
+ *
+ * Return: The computed character
+ */
+int f5(char *str, int len)
+{
+	int i, j, a, b, c;
+
+	i = 0;
+	j = 0;
+	while (j < len)
+	{
+		a = str[j];
+		b = str[j];
+		i = i + b * a;
+		++j;
+	}
+	c = i;
+	c = c ^ 0xef;
+	return (c & 63);
+}
+
+/**
+ * f6 - Computes the sixth character in the key for the given username
+ * @str: The username
+ * @len: The length of the given username
+ *
+ * Return: The computed character
+ */
+int f6(char *str, int len)
+{
+	int i, j, n;
+
+	(void)len;
+	i = 0;
+	j = 0;
+	while (str[0] > j)
+	{
+		n = rand();
+		i = n;
+		++j;
+	}
+	i ^= 0xe5;
+	return (i & 63);
+}
