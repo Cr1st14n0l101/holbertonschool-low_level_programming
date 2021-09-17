@@ -19,7 +19,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 
 	/*verify if the idx is into the range of the list*/
-	while(tmp2)
+	while (tmp2)
 	{
 		count++;
 		tmp2 = tmp2->next;
