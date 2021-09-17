@@ -41,3 +41,61 @@ int main(int argc, char *argv[])
 	}
 	return (EXIT_SUCCESS);
 }
+
+/**
+ * f2 - Computes the second character in the key for the given username
+ * @str: The username
+ * @len: The length of the given username
+ *
+ * Return: The computed character
+ */
+int f2(char *str, int len)
+{
+	int i, j, c;
+
+	i = 0;
+	j = 0;
+	while (j < len)
+	{
+		c = str[j];
+		i = i + c;
+		++j;
+	}
+	return ((i ^ 79) & 63);
+}
+
+/**
+ * f3 - Computes the third character in the key for the given username
+ * @str: The username
+ * @len: The length of the given username
+ *
+ * Return: The computed character
+ */
+int f3(char *str, int len)
+{
+	int i, j, c;
+
+	i = 1;
+	j = 0;
+	while (j < len)
+	{
+		c = str[j];
+		i = c * i;
+		++j;
+	}
+	return ((i ^ 85) & 63);
+}
+
+/**
+ * f4 - Computes the fourth character in the key for the given username
+ * @str: The username
+ * @len: The length of the given username
+ *
+ * Return: The computed character
+ */
+int f4(char *str, int len)
+{
+	int i, j, a, b, rdi10, n;
+
+	i = str[0];
+... (67 lines left)
