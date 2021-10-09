@@ -12,7 +12,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	hash_node_t *list = NULL;
 	unsigned int hash = 0;
 
-	if (!ht || !key)
+	if (!ht)
 		return (NULL);
 
 	hash = hash_djb2((unsigned char *)key);
