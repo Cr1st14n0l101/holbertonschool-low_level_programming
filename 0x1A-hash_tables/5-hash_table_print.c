@@ -5,13 +5,6 @@
  * @ht: The hash table
  * Return: void
  */
-#include "hash_tables.h"
-
-/**
- * hash_table_print - Prints hash table
- * @ht: hash table
- * Return: Nothing
- */
 void hash_table_print(const hash_table_t *ht)
 {
 	size_t i = 0, counter = 0;
