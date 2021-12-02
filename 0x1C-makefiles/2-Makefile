@@ -1,12 +1,10 @@
 # Compile a .c file
 
-.PHONY = all
-
 CC = gcc
 
-SRC = $(wildcard *.c)
+SRC = main.c school.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst %.c,%.o,$(SRC))
 
 NAME = school
 

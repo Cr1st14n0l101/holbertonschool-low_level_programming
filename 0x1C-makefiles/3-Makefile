@@ -1,12 +1,10 @@
 # Compile a .c file
 
-.PHONY = all clean oclean fclean
-
 CC = gcc
 
-SRC = $(wildcard *.c)
+SRC = main.c school.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst %.c,%.o,$(SRC))
 
 NAME = school
 
@@ -23,4 +21,5 @@ oclean:
 
 fclean: clean oclean
 
-re: oclean all
+re: oclean ${OBJ}
+	${CC} ${OBJ} -o ${NAME}
