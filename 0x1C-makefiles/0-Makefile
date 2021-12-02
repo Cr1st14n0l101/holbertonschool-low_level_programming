@@ -1,0 +1,6 @@
+# Compile a .c file
+
+.PHONY = all
+
+all:
+	gcc main.c school.c -o school

@@ -1,0 +1,10 @@
+# Compile a .c file
+
+.PHONY = all
+
+CC = gcc
+
+SRC = $(wildcard1 *.c)
+
+all:
+	${CC} ${SRC} -o school
